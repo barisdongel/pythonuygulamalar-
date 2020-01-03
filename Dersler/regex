@@ -1,0 +1,51 @@
+import re
+
+#findall()
+#search()
+#split()
+#sub()
+
+# [] karakter seti "[a-l]"
+# \ özel karakter ayrımı "\d"
+# . herhangi bir karakter "he..o"
+# ^ başlayan kelime harf "^hello"
+# $ biten kelime harf "world$"
+# * hiç tekrar etmiş mi "aix*"
+# + en az 1 defa tekrar etmiş mi "al{2}"
+# | veya "falls|stays"
+
+s = "Neden, Bay Anderson neden? Neden, neden, neden? Bunu neden yapıyorsun? Niye? Ayağa kalkmak niye? Kavga etmek niye? İnandığın şeyler için kavga ettiğini mi sanıyorsun? Sağ kalmadan öte bir şeyler için mi? Bana söyleyebilir misin, biliyor musun? Özgürlük mü? Gerçek mi? Belki de barış ya da sevgi olabilir mi? Yanılsamalar Bay Anderson, algılamada aldanmalar… Herhangi bir anlama ya da amacı olmayan bir varoluşu ümitsizce haklı göstermeye uğraşan zayıf insan zekasının ürettiği geçici kuruntular ve bunların hepsi de Matrix kadar yapay. Zaten, sevgi gibi zavallı bir kavramı insan zekası icat edebilirdi. Bunu görebilirsin Bay Anderson, artık bunu anlaman gerek! Kazanamazsın! Kavga etmen boşuna! Neden, Bay Anderson neden? Niye inat ediyorsun?"
+
+a = re.findall("neden|Neden|niye|Niye",s)
+print(len(a))
+
+b = re.findall(".eden|.iye",s)
+print(len(b))
+
+c = re.split("\?|\!",s)
+print(c)
+
+d = re.split(" ",s)
+print(len(d)+1)
+
+e = re.findall("[ç,ğ,ı,İ,ö,ş,ü]",s)
+print(len(e))
+
+f = re.findall("[a-zA-Z]{4}[n]",s)
+print(f)
+
+g = re.findall("Anderson*",s)
+print(len(g))
+
+h = re.findall("[e]",s)
+h2 = re.findall("[a]",s)
+print(len(h)-len(h2))
+
+ı = re.sub("ı","i",s)
+print(ı)
+
+k=re.findall("[.]",s)
+print(len(k))
+
+m = re.findall(r'(?<!\.)[.?!](?!\.)', s)
+print(len(m))
